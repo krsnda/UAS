@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice - TOKOMANTAP</title>
+ <style>
+    body { font-family: Arial; margin: 20px; background-color: #f9f9f9; }
+    .invoice { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; background-color: white; }
+    h2 { text-align: center; }
+    .info p { margin: 5px 0; }
+    .print-btn { display: block; margin: 20px auto; padding: 10px 20px; background-color: #333; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="invoice">
+    <h2>Struk Pembelian</h2>
+    <div id="hasil"></div>
+    <button class="print-btn" onclick="window.print()">Cetak</button>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("checkout")) || {};
+    document.getElementById("hasil").innerHTML = `
+      <p><strong>Nama:</strong> ${data.nama}</p>
+      <p><strong>Email:</strong> ${data.email}</p>
+      <p><strong>Telepon:</strong> ${data.telepon}</p>
+      <p><strong>Alamat:</strong> ${data.alamat}</p>
+      <p><strong>Produk:</strong> ${data.produk}</p>
+      <p><strong>Ukuran:</strong> ${data.ukuran}</p>
+      <p><strong>Jumlah:</strong> ${data.jumlah}</p>
+    `;
+  </script>
+</body>
+</html>
